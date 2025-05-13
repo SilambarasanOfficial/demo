@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .project-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    max-width: 100%;
+    position: relative;
+    padding: 20px;
+}
+
+.projects {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    gap: 20px;
+}
+
+.project-card {
+    min-width: 300px;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.project-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.project-title,
+.project-details,
+.price {
+    padding: 10px;
+}
+
+.prj-prev button,
+.prj-nex button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 18px;
+    z-index: 2;
+}
+
+.prj-prev,
+.prj-nex {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.prj-prev {
+    left: 0;
+}
+
+.prj-nex {
+    right: 0;
+}
+    </style>
+</head>
+<body>
+    <div class="project-main">
+        <div class="prj-prev">
+            <button>&lt;</button>
+        </div>
+                  
+        <div class="projects owl-carousel">
+            <div class="project-card">
+                <a href="">
+                    <img src="assest/projects/sunrise.jpg" alt="Project 1">
+                    <div class="project-title"><h3>PRIDE ENCHANTA - II</h3></div>
+                    <div class="project-details">
+                        <p>2,3 BHK Apartments</p>
+                        <h6>ON MYSORE ROAD, VIJAYANAGAR JUNCTION,<br>  BANGLORE WEST</h6>
+                    </div>
+                    <div class="price"><h5>&#8377; 85* L Onwards</h5></div>
+                </a>
+            </div>
+                  
+            <div class="project-card">
+                <a href="">
+                    <img src="assest/projects/rollinghills.jpg" alt="Project 2">
+                    <div class="project-title"><h3>PRIDE CROSSWINDS VILLA</h3></div>
+                    <div class="project-details">
+                        <p>4 BHK Villas</p>
+                        <h6>OFF BANNERGHATTA - JIGANI ROAD, <br>BANGLORE SOUTH</h6>
+                    </div>
+                    <div class="price"><h5>&#8377; 1.94* Cr Onwards</h5></div>
+                </a>
+            </div>
+                  
+            <div class="project-card">
+                <a href="">
+                    <img src="assest/projects/pegasus.jpg" alt="Project 3">
+                    <div class="project-title"><h3>GREEN MEADOWS VILLAS</h3></div>
+                    <div class="project-details">
+                        <p>3 BHK Apartments</p>
+                        <h6>OPP BANNERGHATTA - JIGANI ROAD, <br>BANGLORE SOUTH</h6>
+                    </div>
+                    <div class="price"><h5>&#8377; 68* L Onwards</h5></div>
+                </a>
+            </div>
+                  
+            <div class="project-card">
+                <a href="">
+                    <img src="assest/projects/greenmeadows1.jpg" alt="Project 4">
+                    <div class="project-title"><h3>MEADOWS VILLAS</h3></div>
+                    <div class="project-details">
+                        <p>3 BHK Apartments</p>
+                        <h6>OPP BANNERGHATTA - JIGANI ROAD, <br>BANGLORE SOUTH</h6>
+                    </div>
+                    <div class="price"><h5>&#8377; 68* L Onwards</h5></div>
+                </a>
+            </div>
+
+            <div class="project-card">
+                <a href="#">
+                    <img src="assest/projects/vatikavillas.jpg" alt="Project 2">
+                    <div class="project-title"><h3>PRIDE CROSSWINDS VILLA</h3></div>
+                    <div class="project-details">
+                        <p>4 BHK Villas</p>
+                        <h6>OFF BANNERGHATTA - JIGANI ROAD, <br>BANGLORE SOUTH</h6>
+                    </div>
+                    <div class="price"><h5>&#8377; 1.94* Cr Onwards</h5></div>
+                </a>
+            </div>
+
+        </div>
+                  
+        <div class="prj-nex">
+            <button>&gt;</button>
+        </div>
+    </div>
+    <script>
+const prevButton = document.querySelector('.prj-prev button');
+const nextButton = document.querySelector('.prj-nex button');
+const projectTrack = document.querySelector('.projects');
+const projectCards = document.querySelectorAll('.project-card');
+
+let scrollAmount = 0;
+const scrollStep = 320; // Adjust based on card width and margin
+
+nextButton.addEventListener('click', () => {
+    if (scrollAmount <= (projectTrack.scrollWidth - projectTrack.clientWidth - scrollStep)) {
+        scrollAmount += scrollStep;
+        projectTrack.scrollTo({ left: scrollAmount, behavior: 'smooth' });
+    }
+});
+
+prevButton.addEventListener('click', () => {
+    if (scrollAmount >= scrollStep) {
+        scrollAmount -= scrollStep;
+        projectTrack.scrollTo({ left: scrollAmount, behavior: 'smooth' });
+    }
+});
+    </script>
+</body>
+</html>

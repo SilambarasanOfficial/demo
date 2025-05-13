@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Left to Right Slide Slider</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .slider-wrapper {
+      position: relative;
+      width: 100%;
+      margin: 20px auto;
+      overflow: hidden;
+    }
+
+    .slides-container {
+      display: flex;
+      transition: transform 1s ease-in-out; 
+    }
+
+    .slide {
+      width: 100%;
+      flex-shrink: 0; 
+    }
+
+    .slide img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    .slide-dot {
+      text-align: center;
+      margin-top: 15px;
+    }
+    .dot {
+      width: 12px;
+      height: 12px;
+      margin: 5px;
+      background: #ccc;
+      display: inline-block;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    .dot.active {
+      background: #000;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Slider -->
+  <div class="slider-wrapper">
+    <div class="slides-container">
+      <div class="slide">
+        <img src="assest/banner/banner-2.jpg" alt="Banner 1">
+      </div>
+      <div class="slide">
+        <img src="assest/banner/banner-3.jpg" alt="Banner 2">
+      </div>
+      <div class="slide">
+        <img src="assest/banner/banner-2.jpg" alt="Banner 3">
+      </div>
+      <div class="slide">
+        <img src="assest/banner/banner-3.jpg" alt="Banner 3">
+      </div>
+    </div>
+  </div>
+
+  <!-- Dots -->
+  <div class="slide-dot">
+    <span class="dot" onclick="currentSlide(1)"></span> 
+    <span class="dot" onclick="currentSlide(2)"></span> 
+    <span class="dot" onclick="currentSlide(3)"></span> 
+    <span class="dot" onclick="currentSlide(4)"></span>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    let slideIndex = 0;
+    const slides = document.getElementsByClassName("slide");
+    const dots = document.getElementsByClassName("dot");
+    const slidesContainer = document.querySelector(".slides-container");
+    
+    showSlides();
+
+    function showSlides() {
+      for (let i = 0; i < dots.length; i++) {
+        dots[i].classList.remove("active");
+      }
+
+      slideIndex++;
+      if (slideIndex > slides.length) {
+        slideIndex = 1;
+      }
+
+      // Move the container to the left by the width of one slide
+      slidesContainer.style.transform = `translateX(-${(slideIndex - 1) * 100}%)`;
+
+      // Set active class on the corresponding dot
+      dots[slideIndex - 1].classList.add("active");
+
+      setTimeout(showSlides, 3000); // Change slide every 3 seconds
+    }
+
+    function currentSlide(n) {
+      slideIndex = n - 1;
+      showSlides();
+    }
+  </script>
+
+</body>
+</html>

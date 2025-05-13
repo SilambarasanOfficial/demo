@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Carousel</title>
+  
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .project-main {
+            margin: 20px;
+        }
+        .projects {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .project-card {
+            position: relative;
+            margin: 10px;
+            /* border: 1px solid #ddd; */
+            /* border-radius: 5px; */
+            overflow: hidden;
+        }
+        .project-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .project-title {
+            padding: 10px;
+            /* background-color: #f4f4f4; */
+            text-align: center;
+        }
+        .project-title h3 {
+            margin: 0;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .project-details {
+            padding: 10px;
+            background-color: #fff;
+        }
+        .price {
+            background-color: #f4f4f4;
+            padding: 10px;
+            text-align: center;
+        }
+        .price h5 {
+            margin: 0;
+            font-size: 1.1em;
+            color: #e74c3c;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="project-main">
+        <div class="projects owl-carousel">
+            <!-- Project 1 -->
+            <div class="project-card">
+                <img src="assest/projects/sunrise.jpg" alt="Project 1">
+                <div class="project-title">
+                    <h3>PRIDE ENCHANTA - II</h3>
+                </div>
+                <div class="project-details">
+                    <p>2,3 BHK Apartments</p>
+                    <h6>On Mysore Road, Bangalore West</h6>
+                </div>
+                <div class="price">
+                    <h5>₹ 85* L Onwards</h5>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project-card">
+                <img src="assest/projects/rollinghills.jpg" alt="Project 2">
+                <div class="project-title">
+                    <h3>PRIDE CROSSWINDS VILLA</h3>
+                </div>
+                <div class="project-details">
+                    <p>4 BHK Villas</p>
+                    <h6>Off Bannerghatta - Jigani Road</h6>
+                </div>
+                <div class="price">
+                    <h5>₹ 1.94* Cr Onwards</h5>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="project-card">
+                <img src="assest/projects/pegasus.jpg" alt="Project 3">
+                <div class="project-title">
+                    <h3>GREEN MEADOWS VILLAS</h3>
+                </div>
+                <div class="project-details">
+                    <p>3 BHK Apartments</p>
+                    <h6>Opp Bannerghatta - Jigani Road</h6>
+                </div>
+                <div class="price">
+                    <h5>₹ 68* L Onwards</h5>
+                </div>
+            </div>
+
+            <!-- Project 4 -->
+            <div class="project-card">
+                <img src="assest/projects/greenmeadows1.jpg" alt="Project 4">
+                <div class="project-title">
+                    <h3>MEADOWS VILLAS</h3>
+                </div>
+                <div class="project-details">
+                    <p>3 BHK Apartments</p>
+                    <h6>Opp Bannerghatta - Jigani Road</h6>
+                </div>
+                <div class="price">
+                    <h5>₹ 68* L Onwards</h5>
+                </div>
+            </div>
+
+            <!-- Project 5 -->
+            <div class="project-card">
+                <img src="assest/projects/rollingphase2.jpg" alt="Project 5">
+                <div class="project-title">
+                    <h3>MEADOWS VILLAS</h3>
+                </div>
+                <div class="project-details">
+                    <p>3 BHK Apartments</p>
+                    <h6>Opp Bannerghatta - Jigani Road</h6>
+                </div>
+                <div class="price">
+                    <h5>₹ 68* L Onwards</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- Owl Carousel JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+    <!-- Owl Carousel Initialization -->
+    <script>
+        $(document).ready(function () {
+            $(".projects").owlCarousel({
+                loop: true,               // Enables looping
+                margin: 10,               // Space between items
+                nav: true,                // Show next/prev arrows
+                responsive: {
+                    0: {                    // For mobile devices
+                        items: 1              // Show 1 item on small screens
+                    },
+                    600: {                  // For medium devices
+                        items: 2              // Show 2 items on medium screens
+                    },
+                    1000: {                 // For large devices
+                        items: 3              // Show 3 items on larger screens
+                    }
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>
